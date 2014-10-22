@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 21 Oct 2014 22:28:05 +0800</pubDate>
-    <lastBuildDate>Tue, 21 Oct 2014 22:28:05 +0800</lastBuildDate>
+    <title>hanmbink&#39;s blog</title>
+    <description></description>
+    <link>http://hanmbink.github.io/</link>
+    <atom:link href="http://hanmbink.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 22 Oct 2014 23:39:31 +0800</pubDate>
+    <lastBuildDate>Wed, 22 Oct 2014 23:39:31 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>雅思备考书目</title>
+        <description>&lt;p&gt;&lt;code&gt;必备&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;剑桥雅思4-8的真题书和答案解析书;&lt;/p&gt;
+
+&lt;p&gt;答案书应该买胡敏写的解析3-5，和成刚写的6-8&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;其他经典书目&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;听力：《王陆807词汇系列》（系列中的听力词汇）、《卢峭梅听力机经》&lt;/p&gt;
+
+&lt;p&gt;口语：江涛《80天攻克雅思口语》、王陆《妙语连珠》&lt;/p&gt;
+
+&lt;p&gt;阅读：洪波的《雅思阅读真经》&lt;/p&gt;
+
+&lt;p&gt;写作：慎小嶷《十天突破雅思写作》&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;关于雅思机经&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;《剑桥雅思系列4,5,6,7,8》 + 历史考过的考题机经 + 剑桥未出现过的新题 = 完整的雅思题库&lt;/p&gt;
+
+&lt;p&gt;雅思机经（包含听力，写作，阅读，口语）是参加过雅思考试的广大雅思考生多年的全真题题目，答案和提示陷阱的回忆集。&lt;/p&gt;
+
+&lt;p&gt;因为剑桥雅思考试会反复使用雅思题库中大量的考题，因此《雅思**机经》是参加雅思考试的第一手应试材料，也是追求高分的最佳资料之一，现应该参加雅思考试获取高分考生的必备材料。&lt;/p&gt;
+
+&lt;p&gt;听力机经：这个是雅思考试所有机经中最成体系的，最浪费时间的，最有赌博性质的，最有科普意义的机经。&lt;/p&gt;
+
+&lt;p&gt;机经可以帮助考生在短期内提高雅思考试成绩，但是对应用使用能力的提高却帮助不大，理性对待。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 23 Oct 2014 06:25:49 +0800</pubDate>
+        <link>http://hanmbink.github.io/category-01/2014/10/23/%E9%9B%85%E6%80%9D%E5%A4%87%E8%80%83%E4%B9%A6%E7%9B%AE.html</link>
+        <guid isPermaLink="true">http://hanmbink.github.io/category-01/2014/10/23/%E9%9B%85%E6%80%9D%E5%A4%87%E8%80%83%E4%B9%A6%E7%9B%AE.html</guid>
+        
+        
+        <category>category-01</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
@@ -28,8 +66,8 @@
 
 </description>
         <pubDate>Wed, 22 Oct 2014 06:25:49 +0800</pubDate>
-        <link>http://yourdomain.com/jekyll/update/2014/10/22/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2014/10/22/welcome-to-jekyll.html</guid>
+        <link>http://hanmbink.github.io/jekyll/update/2014/10/22/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://hanmbink.github.io/jekyll/update/2014/10/22/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
