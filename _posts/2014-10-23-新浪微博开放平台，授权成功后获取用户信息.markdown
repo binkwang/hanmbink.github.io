@@ -15,21 +15,16 @@ categories: [技术,ios]
 #pragma mark - WeiboSDKDelegate
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response
 {
-    
     NSLog(@"didReceiveWeiboResponse..");
-    
     if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
     {
     }
     else if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
-        
         NSString *weiboToken = [(WBAuthorizeResponse *)response accessToken];
         NSString *weiboUserID = [(WBAuthorizeResponse *)response userID];
-        
         NSLog(@"weibotoken: %@", weiboToken);
         NSLog(@"weibouserID: %@", weiboUserID);
-        
         //请求用户信息，参考获取用户信息接口文档：http://open.weibo.com/wiki/2/users/show
         NSString *urlStr = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", weiboToken, weiboUserID];
         
@@ -38,7 +33,6 @@ categories: [技术,ios]
     }
 }
 {% endhighlight%}
-
 
 另外，腾讯开放平台的获取用户信息直接通过接口，很方便，授权登录成功后，调用getUserInfo方法，代码如下：
 
@@ -49,7 +43,6 @@ categories: [技术,ios]
     if (_tencentOAuth.accessToken && 0 != [_tencentOAuth.accessToken length])
     {   
         [_tencentOAuth getUserInfo];//获取用户信息，回调函数为getUserInfoResponse
-        
     }
     else
     {
