@@ -9,9 +9,9 @@ categories: work
 
 步骤：
 
-1. 制作目标文件
+一. 制作目标文件
 
-    （1）编写目标文件的源文件（obj_add.c），代码如下:
+    1. 编写目标文件的源文件（obj_add.c），代码如下:
 
 {% highlight ruby %}
   1 #include <stdio.h>
@@ -23,33 +23,33 @@ categories: work
   7 }
 {% endhighlight %}
 
-    （2）编译目标文件的源代码:
+    2. 编译目标文件的源代码:
 
-$gcc -c obj_add.c -o obj_add.o
+`$gcc -c obj_add.c -o obj_add.o`
 
 生成的obj_add.o即制作好的目标文件。
 
-2. 新目标文件添加到libc.a中，生成新的libc.a，并替换原libc.a
+二. 新目标文件添加到libc.a中，生成新的libc.a，并替换原libc.a
 
-    （1）从/usr/lib中把libc.a复制出来（同时做个备份），最好放到新建的目录下，解压libc.a：
+    1. 从/usr/lib中把libc.a复制出来（同时做个备份），最好放到新建的目录下，解压libc.a：
 
-$ar -x libc.a
+`$ar -x libc.a`
 
 可以看到目录下解压出很多.o文件
 
-    （2）把自己制作的目标文件放到这个目录下
+    2. 把自己制作的目标文件放到这个目录下
  
-    （3）在这个目录下生成新的libc.a
+    3. 在这个目录下生成新的libc.a
 
-$ar -rcs libc.a  *.o   
+`$ar -rcs libc.a  *.o`  
 
-    （4）新生成的libc.a替换原libc.a
+    4. 新生成的libc.a替换原libc.a
 
-$sudo cp libc.a  /usr/lib/libc.a   -i   
+`$sudo cp libc.a  /usr/lib/libc.a -i`
 
 /usr/lib/libc.a被覆盖掉
 
-3. 在/usr/include目录下新建obj_test.h头文件，声明自己写的目标文件中的函数，内容如下：
+三. 在/usr/include目录下新建obj_test.h头文件，声明自己写的目标文件中的函数，内容如下：
 
 {% highlight ruby %}
   1 #ifndef _OBJ_TEST_H
@@ -60,7 +60,7 @@ $sudo cp libc.a  /usr/lib/libc.a   -i
   6 #endif  
 {% endhighlight %}
 
-4. 写测试程序（obj_test.c），并进行静态编译：
+四. 写测试程序（obj_test.c），并进行静态编译：
 
 {% highlight ruby %}
   1 #include <obj_test.h>
@@ -74,14 +74,14 @@ $sudo cp libc.a  /usr/lib/libc.a   -i
 
 编译：
 
-$gcc -static obj_test.c -o obj_test.elf
+`$gcc -static obj_test.c -o obj_test.elf`
 
 （一定要进行静态编译）
 
-5.执行编译的可执行程序，看运行结果。
+五. 执行编译的可执行程序，看运行结果。
 
-$./obj_test.elf
-test obj, add by salmon
+`$./obj_test.elf`
+`test obj, add by salmon`
 
 与预想的一致，成功。
 
