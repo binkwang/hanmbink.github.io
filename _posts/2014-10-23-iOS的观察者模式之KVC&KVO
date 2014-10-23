@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "iOS的观察者模式之KVC&KVO"
+title:  "iOS的观察者模式之KVCKVO"
 date:   2014-10-23 18:30:00
 categories: [技术,ios]
 ---
 
 ios实现的观察者模式有两种：NSNotification和KVO。这篇文章介绍的是KVO。
-
 
 KVC
 
