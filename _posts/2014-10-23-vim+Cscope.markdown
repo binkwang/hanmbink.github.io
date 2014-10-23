@@ -11,7 +11,7 @@ categories: [技术,Linux]
 
 * 为代码生成一个cscope数据库。在项目根目录运行下面的命令： 
 
-`#cscope -Rbq`
+>`#cscope -Rbq`
  
 这个命令会生成三个文件：`cscope.out, cscope.in.out, cscope.po.out`
 
