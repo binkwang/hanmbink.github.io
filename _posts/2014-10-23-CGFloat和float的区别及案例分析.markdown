@@ -10,7 +10,6 @@ categories: [技术,ios]
   在32位下，CGFloat定义为float; 在64位下，CGFloat定义为double
 
   `typedef float CGFloat;// 32-bit`  
-
   `typedef double CGFloat;// 64-bit` 
 
 * 编程策略
