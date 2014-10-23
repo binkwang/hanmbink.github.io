@@ -13,7 +13,6 @@ categories: work
 
     编写目标文件的源文件（obj_add.c），代码如下:
 
-{% highlight ruby %}
   1 #include <stdio.h>
   2 
   3 void test(void)
@@ -21,7 +20,6 @@ categories: work
   5         printf("test obj, add by salmon\n");
   6         return;
   7 }
-{% endhighlight %}
 
     编译目标文件的源代码:
 
