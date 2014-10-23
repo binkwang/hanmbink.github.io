@@ -13,15 +13,6 @@ categories: work
 
 	- 编写目标文件的源文件（obj_add.c），代码如下:
 
-		{% highlight ruby %}
-		#include <stdio.h>
-		void test(void)
-		{
-		        printf("test obj, add by salmon\n");
-		        return;
-		}
-		{% endhighlight %}
-
 	- 编译目标文件的源代码:
 
 `$gcc -c obj_add.c -o obj_add.o`
