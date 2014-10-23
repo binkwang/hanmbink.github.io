@@ -5,11 +5,9 @@ date:   2014-10-23
 categories: work
 ---
 
-# 在libc.a静态库中添加自己写的函数，并写测试程序进行调用添加的函数。
+在libc.a静态库中添加自己写的函数，并写测试程序进行调用添加的函数。
 
----
-
-## 制作目标文件
+# 制作目标文件
 
 * 编写目标文件的源文件（obj_add.c），代码如下:
 
@@ -29,7 +27,7 @@ void test(void)
 生成的obj_add.o即制作好的目标文件。
 
 
-## 新目标文件添加到libc.a中，生成新的libc.a，并替换原libc.a
+# 新目标文件添加到libc.a中，生成新的libc.a，并替换原libc.a
 
 * 从/usr/lib中把libc.a复制出来（同时做个备份），最好放到新建的目录下，解压libc.a：
 
@@ -49,7 +47,7 @@ void test(void)
 
 /usr/lib/libc.a被覆盖掉
 
-## 在/usr/include目录下新建obj_test.h头文件，声明自己写的目标文件中的函数，内容如下：
+# 在/usr/include目录下新建obj_test.h头文件，声明自己写的目标文件中的函数，内容如下：
 
 {% highlight ruby %}
 #ifndef _OBJ_TEST_H
@@ -58,7 +56,7 @@ extern void test(void);
 #endif
 {% endhighlight %}
 
-## 写测试程序（obj_test.c），并进行静态编译：
+# 写测试程序（obj_test.c），并进行静态编译：
 
 {% highlight ruby %}
 #include <obj_test.h> 
@@ -75,7 +73,7 @@ int main(void)
 
 （一定要进行静态编译）
 
-## 执行编译的可执行程序，看运行结果。
+# 执行编译的可执行程序，看运行结果。
 
 `$./obj_test.elf`
 
