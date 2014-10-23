@@ -28,11 +28,11 @@ categories: [技术,ios]
   所以有时候如果使用了performSelector，为了程序的健壮性，会使用`respondsToSelector:`方法检查
 
   用下面的方式可以随时随地向任何对象发送任何消息，编译阶段不会报错，运行阶段也不会报错
-  {% highlight ruby %}
-  if ([delegate respondsToSelector:@selector(imageDownloader:didFinishWithImage:)]){    
-      [delegate performSelector:@selector(imageDownloader:didFinishWithImage:) withObject:self withObject:image];
-  }
-  {% endhighlight %}
+{% highlight ruby %}
+if ([delegate respondsToSelector:@selector(imageDownloader:didFinishWithImage:)]){    
+    [delegate performSelector:@selector(imageDownloader:didFinishWithImage:) withObject:self withObject:image];
+}
+{% endhighlight %}
 
 * 直接调用方法时候，一定要在头文件中声明该方法，也要将头文件import进来；而使用performSelector时候，可以不用import引入方法所在的头文件，直接用performSelector调用即可。
 
