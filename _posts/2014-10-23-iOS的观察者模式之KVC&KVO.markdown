@@ -141,3 +141,16 @@ KVO与Notification的区别：
 Notification不是严格意义上的两个对象的交互，中间有一个NotificationCenter来作为中间人来进行沟通，KVO就纯粹是连个对象之间的交互了。
 
 两者的相同点是都需要在最后释放注册的Object。
+
+
+参考：
+
+[1][url01]
+
+[2][url02]
+
+[3][url03]
+
+[url01]:    http://magicalboy.com/kvc_and_kvo/
+[url02]:    http://blog.csdn.net/messageloop3/article/details/8634798
+[url03]:    http://deeryrl.blog.163.com/blog/static/15254287420123235434553/
