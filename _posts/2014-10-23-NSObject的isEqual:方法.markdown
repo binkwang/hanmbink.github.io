@@ -80,7 +80,7 @@ if ([dic1 isEqual:dic2]) {
 
 2014-10-17 17:43:02.643 DaWenXun[13895:60b] NSDictionary not equal
 
-`结论：因为两个Person对象的地址不同，即使两个对象类型和属性值都线通，isEqual方法返回仍为NO`
+`结论：因为两个Person对象的地址不同，即使两个对象类型和属性值都相同，isEqual方法返回仍为NO`
 
 现在在Person中重写父类的isEqual方法：
 
