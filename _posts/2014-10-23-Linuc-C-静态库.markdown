@@ -51,23 +51,21 @@ void test(void)
 3. 在/usr/include目录下新建obj_test.h头文件，声明自己写的目标文件中的函数，内容如下：
 
 {% highlight ruby %}
-  1 #ifndef _OBJ_TEST_H
-  2 #define _OBJ_TEST_H
-  3 
-  4 extern void test(void);
-  5 
+#ifndef _OBJ_TEST_H
+#define _OBJ_TEST_H 
+extern void test(void);
+#endif
 {% endhighlight %}
 
 4. 写测试程序（obj_test.c），并进行静态编译：
 
 {% highlight ruby %}
-  1 #include <obj_test.h>
-  2 
-  3 int main(void)
-  4 {       
-  5         test();
-  6         return 0;
-  7 }
+#include <obj_test.h> 
+int main(void)
+{       
+        test();
+        return 0;
+ }
 {% endhighlight %}
 
 编译：
