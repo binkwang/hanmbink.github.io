@@ -21,7 +21,7 @@ Category可以给原有的类增加新的方法，而不用重新建一个类，
 @interface NSString (ReverseString)
 -(id)reverseString;//字符串反向输出
 @end
-{% endhighlight%}
+{% endhighlight %}
 
 `m文件`
 {% highlight ruby %}
@@ -39,7 +39,7 @@ Category可以给原有的类增加新的方法，而不用重新建一个类，
     return retStr;
 }
 @end
-{% endhighlight%}
+{% endhighlight %}
 
 `使用`
 {% highlight ruby %}
@@ -50,6 +50,6 @@ Category可以给原有的类增加新的方法，而不用重新建一个类，
     NSString *retString = [str reverseString];
     NSLog(@"retString: %@", retString);
 }
-{% endhighlight%}
+{% endhighlight %}
 
 输出结果：`retString: !dlrow olleh`
