@@ -23,26 +23,26 @@ key 只是一个字符串（即属性名），它对应的value可以是任意�
 {% highlight ruby %}
 NSString *originalName = [person valueForKey:@"name"];// using the KVC accessor (getter) method 
 [person setValue:newName forKey:@"name"];// using the KVC  accessor (setter) method. 
-{% endhighlight%}
+{% endhighlight %}
 
 现在，如果 Person有另外一个 key配偶（spouse），spouse的 key值是另一个 Person对象，用 KVC可以这样写： 
 
 {% highlight ruby %}
 NSString *personsName = [p valueForKey:@"name"];// just using the accessor again, same as example above 
 NSString *spousesName = [p valueForKeyPath:@"spouse.name"];// a "key path" instead of a normal "key" 
-{% endhighlight%}
+{% endhighlight %}
 
 key 与 key path要区分开来，key可以从一个对象中获取值，而 key path可以将多个 key用点号 “.”分割连接起来，比如：
 
 {% highlight ruby %}
 [p valueForKeyPath:@"spouse.name"];
-{% endhighlight%}
+{% endhighlight %}
 
 相当于这样： 
 
 {% highlight ruby %}
 [[p valueForKey:@"spouse"] valueForKey:@"name"];
-{% endhighlight%}
+{% endhighlight %}
 
 以上是 KVC的基本知识
 
@@ -75,7 +75,7 @@ KVO
 @property(nonatomic,copy)NSString *stockName;
 @property(nonatomic,copy)NSString *price;
 @end
-{% endhighlight%}
+{% endhighlight %}
 
 定义此model为viewController的属性，实例化它，监听它的属性，并在view上显示属性值
 
@@ -100,7 +100,7 @@ KVO
     [b addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:b];
 }
-{% endhighlight%}
+{% endhighlight %}
 
 当点击button的时候，调用buttonAction方法，修改对象的属性
 
@@ -109,7 +109,7 @@ KVO
 {
     [_stock setValue:@"20.0" forKey:@"price"];
 }
-{% endhighlight%}
+{% endhighlight %}
 
 实现回调方法
 
@@ -122,7 +122,7 @@ KVO
         myLabel.text = [_stock valueForKey:@"price"];
     }
 }
-{% endhighlight%}
+{% endhighlight %}
 
 增加观察与取消观察是成对出现的，所以需要在最后的时候，移除观察者 
 
@@ -133,7 +133,7 @@ KVO
     [_stock removeObserver:self forKeyPath:@"price"];
     [_stock release];
 }
-{% endhighlight%}
+{% endhighlight %}
 
 KVO与Notification的区别：
 
@@ -142,16 +142,3 @@ KVO与Notification的区别：
 Notification不是严格意义上的两个对象的交互，中间有一个NotificationCenter来作为中间人来进行沟通，KVO就纯粹是连个对象之间的交互了。
 
 两者的相同点是都需要在最后释放注册的Object。
-
-
-参考：
-
-[1][url01]
-
-[2][url02]
-
-[3][url03]
-
-[url01]:    http://magicalboy.com/kvc_and_kvo/
-[url02]:    http://blog.csdn.net/messageloop3/article/details/8634798
-[url03]:    http://deeryrl.blog.163.com/blog/static/15254287420123235434553/
