@@ -7,11 +7,11 @@ categories: [技术,Linux]
 
 简单介绍一下vim+cscope的使用
 
-* vim必须先支持cscope，通过`#vim --version grep 'cscope'`命令来查看是否支持，如果不支持，需要重装vim
+* vim必须先支持cscope，通过`vim --version grep 'cscope'`命令来查看是否支持，如果不支持，需要重装vim
 
 * 为代码生成一个cscope数据库。在项目根目录运行下面的命令： 
 
-	`#cscope -Rbq`
+	`cscope -Rbq`
  
 	这个命令会生成三个文件：`cscope.out, cscope.in.out, cscope.po.out`
 
