@@ -7,17 +7,11 @@ categories: [技术,ios]
 
 ios实现的观察者模式有两种：NSNotification和KVO。这篇文章介绍的是KVO。
 
-KVC
+`KVO的实现基础: KVC`
 
-NSKeyValueCoding，提供一种机制来间接访问对象的属性。是KVO的基础。
+KVC, NSKeyValueCoding，提供一种机制来间接访问对象的属性。是KVO的基础。
 
-一个对象拥有某些属性。比如说，一个 Person 对象有一个 name 和一个 address 属性。
-
-以 KVC 说法，Person 对象分别有一个 value 对应他的 name 和 address 的 key。 
-
-key 只是一个字符串（即属性名），它对应的value可以是任意类型的对象。
-
-从最基础的层次上看，KVC 有两个方法：一个是设置 key 的值，另一个是获取 key 的值。
+一个对象拥有某些属性，比如一个 Person 对象有一个 name 和一个 address 属性。以 KVC 说法，Person 对象分别有一个 value 对应他的 name 和 address 的 key。 key 只是一个字符串（即属性名），它对应的value可以是任意类型的对象。从最基础的层次上看，KVC有两个方法：一个是设置 key 的值，另一个是获取 key 的值，看代码:
 
 {% highlight ruby %}
 NSString *originalName = [person valueForKey:@"name"];// using the KVC accessor (getter) method 
@@ -43,31 +37,20 @@ key 与 key path要区分开来，key可以从一个对象中获取值，而 key
 [[p valueForKey:@"spouse"] valueForKey:@"name"];
 {% endhighlight %}
 
-以上是 KVC的基本知识
+以上是 KVC的基本知识。
 
-KVO
+`KVO`
 
-作用
+主要应用: 通过 key path观察对象的值，当值发生变化的时候会收到通知。在iOS中，KVO最主要的目的还是实现两个对象之间的交互，比如都需要根据属性的变化来更新UI，如果不用KVO，需要在每个更新属性的时候加上UI更新的代码，使用KVO只需要添加一处UI更新的代码，因为KVO代码会自动的跟踪属性的变化，当变化的时候，会自己调用同一个变化的方法来处理，减少代码的冗余。
 
-通过 key path观察对象的值，当值发生变化的时候会收到通知
-
-在iOS中，KVO最主要的目的还是实现两个对象之间的交互，比如都需要根据属性的变化来更新UI，
-
-不用KVO，需要在每个更新属性的时候加上UI更新的代码。
-
-用KVO，只需要添加一处UI更新的代码，因为KVO代码会自动的跟踪属性的变化，当变化的时候，会自己调用同一个变化的方法来处理，减少代码的冗余。
-
-
-使用流程：
+使用流程: 
 * 注册，指定被观察者的属性
 * 实现回调方法
 * 移除观察
 
-实例 
+一个实例: 假设一个场景,股票的价格显示在当前屏幕上，当股票价格更改的时候，实时显示更新其价格。 
 
-假设一个场景,股票的价格显示在当前屏幕上，当股票价格更改的时候，实时显示更新其价格。 
-
-定义DataModel
+定义DataModel:
 
 {% highlight ruby %}
 @interface HRKVOModel : NSObject
@@ -76,7 +59,7 @@ KVO
 @end
 {% endhighlight %}
 
-定义此model为viewController的属性，实例化它，监听它的属性，并在view上显示属性值
+定义此model为viewController的属性，实例化它，监听它的属性，并在view上显示属性值:
 
 {% highlight ruby %}
 @property(nonatomic, strong)StockData *stock;
@@ -101,7 +84,7 @@ KVO
 }
 {% endhighlight %}
 
-当点击button的时候，调用buttonAction方法，修改对象的属性
+当点击button的时候，调用buttonAction方法，修改对象的属性:
 
 {% highlight ruby %}
 -(void) buttonAction
@@ -110,7 +93,7 @@ KVO
 }
 {% endhighlight %}
 
-实现回调方法
+实现监听回调方法:
 
 {% highlight ruby %}
 // whenever an observed key path changes, this method will be called 
@@ -123,7 +106,7 @@ KVO
 }
 {% endhighlight %}
 
-增加观察与取消观察是成对出现的，所以需要在最后的时候，移除观察者 
+增加观察与取消观察是成对出现的，所以需要在最后的时候移除观察者:
 
 {% highlight ruby %}
 - (void)dealloc
@@ -134,13 +117,9 @@ KVO
 }
 {% endhighlight %}
 
-KVO与Notification的区别：
+`KVO与Notification的区别:`
 
-实现两个对象之间的交互用Notification也可以，区别在于：
-
-Notification不是严格意义上的两个对象的交互，中间有一个NotificationCenter来作为中间人来进行沟通，KVO就纯粹是连个对象之间的交互了。
-
-两者的相同点是都需要在最后释放注册的Object。
+实现两个对象之间的交互用Notification也可以，与KVO区别在于：Notification不是严格意义上的两个对象的交互，中间有一个NotificationCenter来作为中间人来进行沟通，KVO就纯粹是连个对象之间的交互了。两者的相同点是都需要在最后释放注册的Object。
 
 
 参考：
