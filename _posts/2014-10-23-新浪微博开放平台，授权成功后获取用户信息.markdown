@@ -1,0 +1,70 @@
+---
+layout: post
+title:  "新浪微博开放平台，授权成功后获取用户信息"
+date:   2014-10-23 18:00:00
+categories: [技术,ios]
+---
+
+最近做的一个ios app中需要用到第三方登录
+
+新浪微博登录平台的sdk demo中没有只有登录和发微博功能，没有获取用户信息，看了一下sdk接口和官方文档，才发现需要发起https请求去获取用户信息
+
+在didReceiveWeiboResponse代理函数中请求用户信息，代码如下
+
+{% highlight ruby %} 
+#pragma mark - WeiboSDKDelegate
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+{
+    
+    NSLog(@"didReceiveWeiboResponse..");
+    
+    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
+    {
+    }
+    else if ([response isKindOfClass:WBAuthorizeResponse.class])
+    {
+        
+        NSString *weiboToken = [(WBAuthorizeResponse *)response accessToken];
+        NSString *weiboUserID = [(WBAuthorizeResponse *)response userID];
+        
+        NSLog(@"weibotoken: %@", weiboToken);
+        NSLog(@"weibouserID: %@", weiboUserID);
+        
+        //请求用户信息，参考获取用户信息接口文档：http://open.weibo.com/wiki/2/users/show
+        NSString *urlStr = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", weiboToken, weiboUserID];
+        
+        //发起http请求....
+        
+    }
+}
+{% endhighlight%}
+
+
+另外，腾讯开放平台的获取用户信息直接通过接口，很方便，授权登录成功后，调用getUserInfo方法，代码如下：
+
+{% highlight ruby %} 
+#pragma mark - TencentSessionDelegate
+- (void)tencentDidLogin 
+{
+    if (_tencentOAuth.accessToken && 0 != [_tencentOAuth.accessToken length])
+    {   
+        [_tencentOAuth getUserInfo];//获取用户信息，回调函数为getUserInfoResponse
+        
+    }
+    else
+    {
+        NSLog(@"登录不成功 没有获取accesstoken");
+    }
+}
+- (void)getUserInfoResponse:(APIResponse*) response
+{
+     if (response.retCode == URLREQUEST_SUCCEED)
+     {
+        NSLog(@"获取个人信息成功: %@", response.jsonResponse);
+     }
+     else
+     {
+        NSLog(@"获取个人信息失败");
+     }
+}
+{% endhighlight%}
