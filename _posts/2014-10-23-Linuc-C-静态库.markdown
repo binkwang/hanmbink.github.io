@@ -11,7 +11,7 @@ categories: work
 
 1. 制作目标文件
 
-   编写目标文件的源文件（obj_add.c），代码如下:
+- 编写目标文件的源文件（obj_add.c），代码如下:
 
 {% highlight ruby %}
 #include <stdio.h>
@@ -22,7 +22,7 @@ void test(void)
 }
 {% endhighlight %}
 
-   编译目标文件的源代码:
+- 编译目标文件的源代码:
 
 `$gcc -c obj_add.c -o obj_add.o`
 
@@ -30,19 +30,19 @@ void test(void)
 
 2. 新目标文件添加到libc.a中，生成新的libc.a，并替换原libc.a
 
-    从/usr/lib中把libc.a复制出来（同时做个备份），最好放到新建的目录下，解压libc.a：
+- 从/usr/lib中把libc.a复制出来（同时做个备份），最好放到新建的目录下，解压libc.a：
 
 `$ar -x libc.a`
 
 可以看到目录下解压出很多.o文件
 
-    把自己制作的目标文件放到这个目录下
+- 把自己制作的目标文件放到这个目录下
  
-    在这个目录下生成新的libc.a
+- 在这个目录下生成新的libc.a
 
 `$ar -rcs libc.a  *.o`  
 
-    新生成的libc.a替换原libc.a
+- 新生成的libc.a替换原libc.a
 
 `$sudo cp libc.a  /usr/lib/libc.a -i`
 
