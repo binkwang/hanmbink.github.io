@@ -9,10 +9,9 @@ categories: work
 
 步骤：
 
-1. 
- 制作目标文件
+1. 制作目标文件
 
-    编写目标文件的源文件（obj_add.c），代码如下:
+    a. 编写目标文件的源文件（obj_add.c），代码如下:
 
 {% highlight ruby %}
   1 #include <stdio.h>
@@ -24,36 +23,33 @@ categories: work
   7 }
 {% endhighlight %}
 
-    编译目标文件的源代码:
+    b. 编译目标文件的源代码:
 
 `$gcc -c obj_add.c -o obj_add.o`
 
 生成的obj_add.o即制作好的目标文件。
 
-2.
+2. 新目标文件添加到libc.a中，生成新的libc.a，并替换原libc.a
 
-新目标文件添加到libc.a中，生成新的libc.a，并替换原libc.a
-
-    从/usr/lib中把libc.a复制出来（同时做个备份），最好放到新建的目录下，解压libc.a：
+    a. 从/usr/lib中把libc.a复制出来（同时做个备份），最好放到新建的目录下，解压libc.a：
 
 `$ar -x libc.a`
 
 可以看到目录下解压出很多.o文件
 
-    把自己制作的目标文件放到这个目录下
+    b. 把自己制作的目标文件放到这个目录下
  
-    在这个目录下生成新的libc.a
+    c. 在这个目录下生成新的libc.a
 
 `$ar -rcs libc.a  *.o`  
 
-    新生成的libc.a替换原libc.a
+    d. 新生成的libc.a替换原libc.a
 
 `$sudo cp libc.a  /usr/lib/libc.a -i`
 
 /usr/lib/libc.a被覆盖掉
 
-3.
-在/usr/include目录下新建obj_test.h头文件，声明自己写的目标文件中的函数，内容如下：
+3. 在/usr/include目录下新建obj_test.h头文件，声明自己写的目标文件中的函数，内容如下：
 
 {% highlight ruby %}
   1 #ifndef _OBJ_TEST_H
@@ -64,8 +60,7 @@ categories: work
   6 #endif  
 {% endhighlight %}
 
-4.
-写测试程序（obj_test.c），并进行静态编译：
+4. 写测试程序（obj_test.c），并进行静态编译：
 
 {% highlight ruby %}
   1 #include <obj_test.h>
@@ -83,9 +78,7 @@ categories: work
 
 （一定要进行静态编译）
 
-5.
-
-执行编译的可执行程序，看运行结果。
+5. 执行编译的可执行程序，看运行结果。
 
 `$./obj_test.elf`
 
