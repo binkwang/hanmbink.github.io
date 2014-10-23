@@ -145,7 +145,11 @@ Notification不是严格意义上的两个对象的交互，中间有一个Notif
 
 参考：
 
-[http://magicalboy.com/kvc_and_kvo/][url01],[b][url02],[c][url03]
+[http://magicalboy.com/kvc_and_kvo/][url01]
+
+[http://blog.csdn.net/messageloop3/article/details/8634798][url02]
+
+[http://deeryrl.blog.163.com/blog/static/15254287420123235434553/][url03]
 
 [url01]:    http://magicalboy.com/kvc_and_kvo/
 [url02]:    http://blog.csdn.net/messageloop3/article/details/8634798
