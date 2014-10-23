@@ -13,15 +13,14 @@ categories: work
 
    编写目标文件的源文件（obj_add.c），代码如下:
 
-```ruby
-  1 #include <stdio.h>
-  2 
-  3 void test(void)
-  4 {
-  5         printf("test obj, add by salmon\n");
-  6         return;
-  7 }
-```
+{% highlight ruby %}
+#include <stdio.h>
+void test(void)
+{
+        printf("test obj, add by salmon\n");
+        return;
+}
+{% endhighlight %}
 
    编译目标文件的源代码:
 
@@ -57,7 +56,6 @@ categories: work
   3 
   4 extern void test(void);
   5 
-  6 #endif  
 {% endhighlight %}
 
 4. 写测试程序（obj_test.c），并进行静态编译：
