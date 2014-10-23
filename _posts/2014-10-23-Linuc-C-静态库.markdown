@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Linux C static lib"
+title:  "Linux C 静态库"
 date:   2014-10-23
 categories: [技术,Linux-C]
 ---
