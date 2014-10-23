@@ -145,11 +145,7 @@ Notification不是严格意义上的两个对象的交互，中间有一个Notif
 
 参考：
 
-[1][url01]
-
-[2][url02]
-
-[3][url03]
+[http://magicalboy.com/kvc_and_kvo/][url01],[b][url02],[c][url03]
 
 [url01]:    http://magicalboy.com/kvc_and_kvo/
 [url02]:    http://blog.csdn.net/messageloop3/article/details/8634798
