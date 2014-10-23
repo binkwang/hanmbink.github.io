@@ -41,6 +41,8 @@ categories: [技术,ios]
 
 # 相应的编程策略
 
+示例代码
+
 {% highlight ruby %}
 @property (nonatomic, MY_RETAIN) NSArray *arr;  //1
 - (void)initDatas
@@ -66,25 +68,28 @@ categories: [技术,ios]
 
 * 给属性赋值，要另外创建一个相同类型的对象，然后用self.arr=array;方式来赋值，然后释放创建的对象。
 
-如果用下面代码直接给属性创建空间：
+	如果用下面代码直接给属性创建空间：
 
-`self.arr = [[NSMutableArray alloc]initWithCapacity:10];`
+	`self.arr = [[NSMutableArray alloc]initWithCapacity:10];`
 
-则_arr指向的内存区引用计数器为2，用alloc增加1次，用setter方法又增加1次。这样显得混乱，容易导致内存泄漏。
+	则_arr指向的内存区引用计数器为2，用alloc增加1次，用setter方法又增加1次。这样显得混乱，容易导致内存泄漏。
 
-当然可以用下面赋值语句：
+	当然可以用下面赋值语句：
 
-`_arr = [[NSMutableArrayalloc]initWithCapacity:10];`
+	`_arr = [[NSMutableArrayalloc]initWithCapacity:10];`
 
-这样，_arr指向的内存区引用计数器为1，只用alloc增加1次，没有调用setter方法。
+	这样，_arr指向的内存区引用计数器为1，只用alloc增加1次，没有调用setter方法。
 
 * 使用属性时，用"_arr"形式，这样时直接访问对象本身，也可以用"self.arr"的形势，这样时调用getter方法，速度慢
 
 * 在dealloc方法中释放属性
 
-总之，给属性赋值的时候，统一用"self.属性名＝"的方式，然后在dealloc方法中把属性所指内存区的引用计数器减1
 
-给属性赋值时，创建的临时对象，如果是用new,alloc,copy创建的，则赋值之后就release; 如果是用便利构造器创建的，则不需要release
+# 总结
 
-调用属性时，采用"_属性名"的形式，而不是用“self.属性名”来间接调用。 
+* 给属性赋值的时候，统一用"self.属性名＝"的方式，然后在dealloc方法中把属性所指内存区的引用计数器减1
+
+* 给属性赋值时创建的临时对象，如果是用new,alloc,copy创建的，则赋值之后就release; 如果是用便利构造器创建的，则不需要release
+
+* 调用属性时，采用"_属性名"的形式，而不是用“self.属性名”来间接调用。 
 
