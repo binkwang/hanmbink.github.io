@@ -17,6 +17,7 @@ Category可以给原有的类增加新的方法，而不用重新建一个类，
 例子：给NSString类增加一个字符串反向输出的方法
 
 `头文件`
+
 {% highlight ruby %}
 @interface NSString (ReverseString)
 -(id)reverseString;//字符串反向输出
@@ -24,6 +25,7 @@ Category可以给原有的类增加新的方法，而不用重新建一个类，
 {% endhighlight %}
 
 `m文件`
+
 {% highlight ruby %}
 #import "NSString+ReverseString.h"
 @implementation NSString (ReverseString)
@@ -42,6 +44,7 @@ Category可以给原有的类增加新的方法，而不用重新建一个类，
 {% endhighlight %}
 
 `使用`
+
 {% highlight ruby %}
 #import "NSString+ReverseString.h"
 -(void)test
