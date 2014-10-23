@@ -9,12 +9,12 @@ categories: [技术,ios]
 
   在32位下，CGFloat定义为float; 在64位下，CGFloat定义为double
 
-`
-typedef float CGFloat;// 32-bit  
-typedef double CGFloat;// 64-bit  
-`
+  `typedef float CGFloat;// 32-bit`  
+
+  `typedef double CGFloat;// 64-bit` 
 
 * 编程策略
+  
   对于需要兼容64位机器的程序而言，所有使用float的地方都改为用CGFloat。
 
   长远角度考虑推荐尽量使用CGFloat，尽管在32位上相比float增加了一些memory footprint的消耗。
