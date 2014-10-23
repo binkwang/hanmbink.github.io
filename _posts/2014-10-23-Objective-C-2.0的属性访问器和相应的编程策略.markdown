@@ -11,7 +11,7 @@ categories: [技术,ios]
 
 属性访问器：不需要手动书写getter/setter方法，增加了property/synthesize关键字来实现此功能
 
-`@prpperty`
+`@property`
 
 用@prpperty关键字声明属性，这样在编译后的代码中，自动添加成员变量的getter/setter方法
 
@@ -41,7 +41,7 @@ categories: [技术,ios]
 
 # 相应的编程策略
 
-{% highlight oc %}
+{% highlight ruby %}
 @property (nonatomic, MY_RETAIN) NSArray *arr;  //1
 - (void)initDatas
 {
