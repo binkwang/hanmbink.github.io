@@ -11,7 +11,15 @@ categories: work
 
 1. 制作目标文件
 	- 编写目标文件的源文件（obj_add.c），代码如下:
-		aaaa
+
+			{% highlight ruby %}
+			#include <stdio.h>
+			void test(void)
+			{
+				printf("test obj, add by salmon\n");
+				return;
+			}
+			{% endhighlight %}
 
 	- 编译目标文件的源代码:
 
