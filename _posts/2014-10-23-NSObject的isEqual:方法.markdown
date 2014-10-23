@@ -25,7 +25,9 @@ if ([dic1 isEqual:dic2]) {
 {% endhighlight %}
 
 输出结果：
+
 2014-10-17 17:40:01.756 DaWenXun[13877:60b] NSString equal
+
 2014-10-17 17:40:01.759 DaWenXun[13877:60b] NSDictionary equal
 
 `结论：NSString和NSDictionary肯定重写了isEqual方法`
@@ -72,9 +74,10 @@ if ([dic1 isEqual:dic2]) {
 }
 {% endhighlight %}
 
-
 输出结果：
+
 2014-10-17 17:43:02.639 DaWenXun[13895:60b] Person not equal
+
 2014-10-17 17:43:02.643 DaWenXun[13895:60b] NSDictionary not equal
 
 `结论：因为两个Person对象的地址不同，即使两个对象类型和属性值都线通，isEqual方法返回仍为NO`
@@ -138,7 +141,9 @@ if ([dic1 isEqual:dic2]) {
 {% endhighlight %}
 
 输出结果：
+
 2014-10-17 18:11:47.522 DaWenXun[13992:60b] Person equal
+
 2014-10-17 18:11:47.524 DaWenXun[13992:60b] NSDictionary equal
 
 
