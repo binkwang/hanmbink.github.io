@@ -11,8 +11,9 @@ categories: work
 
 1. 制作目标文件
 
-    编写目标文件的源文件（obj_add.c），代码如下:
+   编写目标文件的源文件（obj_add.c），代码如下:
 
+{% highlight ruby %}
   1 #include <stdio.h>
   2 
   3 void test(void)
@@ -20,8 +21,9 @@ categories: work
   5         printf("test obj, add by salmon\n");
   6         return;
   7 }
+{% endhighlight %}
 
-    编译目标文件的源代码:
+   编译目标文件的源代码:
 
 `$gcc -c obj_add.c -o obj_add.o`
 
