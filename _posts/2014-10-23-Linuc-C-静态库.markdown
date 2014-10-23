@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Linux C 静态库"
+title:  "Linux C static lib"
 date:   2014-10-23
-categories: work
+categories: [技术,Linux-C]
 ---
 
 在libc.a静态库中添加自己写的函数，并写测试程序进行调用添加的函数。
