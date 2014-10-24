@@ -12,6 +12,6 @@ You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://gi
 -->
 Bink Wang
 
-github: [https://github.com/hanmbink](https://github.com/hanmbink)
-
 blog: [hanmbink.github.io](http://hanmbink.github.io)
+
+github: [https://github.com/hanmbink](https://github.com/hanmbink)
