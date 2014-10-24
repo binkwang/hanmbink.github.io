@@ -1,5 +1,5 @@
 # Site settings
-title: 三文鱼 搬家至此
+title: 三文鱼
 email: fxmmc@sina.com
 description: > # this means to ignore newlines until "baseurl:"
   
@@ -7,7 +7,6 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://hanmbink.github.io" # the base hostname & protocol for your site
 twitter_username: 
 github_username:  hanmbink
-blog_main_page:   首页
 
 # Build settings
 markdown: kramdown
