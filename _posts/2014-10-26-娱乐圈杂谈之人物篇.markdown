@@ -71,7 +71,7 @@ categories: [生活,杂]
 
 还是金池比较真实。
 
-
+![hello world](./pic/hello world.jpg)
 
 
 
