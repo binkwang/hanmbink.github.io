@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ASIHTTPRequest创建异步请求(一)"
+title:  "ASIHTTPRequest源代码分析（一）"
 date:   2014-10-27 17:00:00
 categories: [技术,ios]
 ---
@@ -34,7 +34,7 @@ categories: [技术,ios]
 
 `分析源代码`
 
-`1 requestWithURL创建请求`
+`1 初始化请求`
 
 {% highlight ruby %}
 #pragma mark init / dealloc
