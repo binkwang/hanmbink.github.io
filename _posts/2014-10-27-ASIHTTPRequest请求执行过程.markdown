@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "CGFloat和float的区别及案例分析"
+title:  "ASIHTTPRequest创建异步请求(一)"
 date:   2014-10-27 17:00:00
 categories: [技术,ios]
 ---
