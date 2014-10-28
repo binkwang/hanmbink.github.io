@@ -44,11 +44,17 @@ Person *person3 = [Person new];//类名就是类对象
 {% endhighlight %}
 
 +load方法：
+
 在程序启动的时候会加载所有的类和分类(category)，并且自动调用所有类和分类的+load方法
+
 程序启动先加载父类然后是子类，也就是先调用父类的+load方法再调用子类的+load方法
+
 先加载原始类再加载分类
+
 不管程序运行有没有用到这个类，都会调用+load加载
 
 +initialize方法：
+
 在第一次使用某个类时比如创建对象，都会调用一次+initialize方法
+
 一个类只会调用一次+initialize方法，先调用父类再调用子类的initialize方法
