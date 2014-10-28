@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "OC的类"
+date:   2014-10-28 10:00:00
+categories: [技术,ios]
+---
+
+`1 类也是个对象`
+
+类是一个对象，是Class类型的对象，简称类对象
+
+Class类型的定义
+
+{% highlight ruby %}
+// 一个任意的类型，表示一个Objective-C类
+typedef struct objc_class *Class;
+{% endhighlight %}
+
+类名就代表着类对象，每个类只有一个类对象，获取类对象：
+
+{% highlight ruby %}
+// 获取类对象两种方式person1 和 person2
+// 方式一：
+Class person1 = [Person class];
+// 方式二：
+Person *p = [Person new];
+Class person2 = [p class];
+{% endhighlight %}
+
+类对象调用类方法：
+
+{% highlight ruby %}
+Person *person3 = [person1 new];
+//等价于：
+Person *person3 = [Person new];//类名就是类对象
+{% endhighlight %}
+
+
+`2 类的加载方法和初始化方法`
+
+{% highlight ruby %}
++ (void)load; // 在类加载的时候调用一次
++ (void)initialize;  // 在使用某个类的时候调用一次
+{% endhighlight %}
+
++load方法：
+在程序启动的时候会加载所有的类和分类(category)，并且自动调用所有类和分类的+load方法
+程序启动先加载父类然后是子类，也就是先调用父类的+load方法再调用子类的+load方法
+先加载原始类再加载分类
+不管程序运行有没有用到这个类，都会调用+load加载
+
++initialize方法：
+在第一次使用某个类时比如创建对象，都会调用一次+initialize方法
+一个类只会调用一次+initialize方法，先调用父类再调用子类的initialize方法
