@@ -5,9 +5,9 @@ date:   2014-10-28 11:00:00
 categories: [技术,ios]
 ---
 
-不能添加成员变量,但能添加属性，本文介绍Category添加属性的方式
+Category不能添加成员变量,但能添加属性，本文介绍Category添加属性的方式
 
-方式一：
+`方式一：`
 
 给一个类声明一个属性，编译器会自动生成一个以下划线开头的实例变量；但是给类别添加属性，并不会为这个属性自动生成对应的成员变量
 
@@ -34,7 +34,7 @@ categories: [技术,ios]
 
 2 不能在这个类别本身的实现中使用，只能在类别外使用，相当于给UIScrollView添加了属性
 
-方式二：使用Associative References
+`方式二：使用Associative References`
 
 {% highlight ruby %}
 @interface UIScrollView()
