@@ -69,8 +69,9 @@ app进入后台会有一段执行时间，过了这段时间，处于挂起状�
         _timer = nil;
     }
 }
-- (void)getSptData:(NSTimer *)theTimer
+- (void)getData:(NSTimer *)theTimer
 {
     //获取数据并刷新界面
 }
 {% endhighlight %}
+
