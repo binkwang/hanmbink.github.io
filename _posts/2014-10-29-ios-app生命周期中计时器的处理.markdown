@@ -39,7 +39,7 @@ app进入后台会有一段执行时间，过了这段时间，处于挂起状�
 {% endhighlight %}
 
 {% highlight ruby %}
-#pragma mark - ----通知中心响应方法----
+#pragma mark - 通知中心响应方法
 -(void)appWillResignActive:(NSNotification*)notification
 {
     //销毁计时器
