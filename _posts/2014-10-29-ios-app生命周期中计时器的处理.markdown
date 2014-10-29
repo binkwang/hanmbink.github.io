@@ -1,0 +1,76 @@
+---
+layout: post
+title:  "ios app生命周期中计时器的处理方法"
+date:   2014-10-29 10:30:00
+categories: [技术,ios]
+---
+
+app的生命周期不是本文重点，读者自己去了解。
+
+app进入后台会有一段执行时间，过了这段时间，处于挂起状态不能运行程序，并可能在任何时间从内存删除。
+
+当程序中包含下列业务，就需要考虑程序生命周期对业务的影响，要有对应的处理策略：
+
+1 停止timer和周期性任务
+
+2 停止视频播放
+
+3 挂起分发队列
+
+4 其他
+
+案例：使用NSTimer周期性刷新一个界面，当app进入inactive状态，取消刷新；回到active状态，继续刷新
+
+{% highlight ruby %}
+#pragma mark - 添加&删除系统通知
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [self createAndFireTimer];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self stopAndDestoryTimer];
+}
+{% endhighlight %}
+
+{% highlight ruby %}
+#pragma mark - ----通知中心响应方法----
+-(void)appWillResignActive:(NSNotification*)notification
+{
+    //销毁计时器
+    [self stopAndDestoryTimer];
+}
+-(void)appDidBecomeActive:(NSNotification*)notification
+{
+    //重新获取数据 并启动计时器
+    [self createAndFireTimer];
+}
+{% endhighlight %}
+
+{% highlight ruby %}
+#pragma mark - 计时器和响应方法
+-(void)createAndFireTimer
+{
+    //创建计时器开始计时
+    _timer = [NSTimer timerWithTimeInterval:SPT_DATA_GET_RATE target:self selector:@selector(getData:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    [_timer fire];
+}
+-(void)stopAndDestoryTimer
+{
+    //停止计时器
+    if (_timer.isValid) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+}
+- (void)getSptData:(NSTimer *)theTimer
+{
+    //获取数据并刷新界面
+}
+{% endhighlight %}
