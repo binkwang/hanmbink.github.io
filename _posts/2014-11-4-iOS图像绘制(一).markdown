@@ -1,0 +1,93 @@
+---
+layout: post
+title:  "iOS图像绘制(一)"
+date:   2014-11-4 10:00:00
+categories: [技术,ios]
+---
+
+本文分析两个代码例子：在UIView层面和CALayer层面绘制图像
+
+1 在UIView层面进行绘制
+
+{% highlight ruby %}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //=== 创建CGContextRef ===
+
+    UIGraphicsBeginImageContext(self.view.bounds.size);//创建上下文
+    CGContextRef gc = UIGraphicsGetCurrentContext();//获取上下文
+    
+    //=== 绘画逻辑 ===
+
+    //创建用于转移坐标的Transform，这样我们不用按照实际显示做坐标计算
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(50, 50);
+    //创建CGMutablePathRef
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddArc(path, &transform, 50, 50, 50, 0, 1.5 * M_PI, NO);
+    CGPathMoveToPoint(path, &transform, 50, 0);
+    CGPathAddLineToPoint(path, &transform, 50, 50);
+    CGPathAddLineToPoint(path, &transform, 100, 50);
+    
+    //=== 将CGMutablePathRef添加到当前Context内 ===
+
+    CGContextAddPath(gc, path);
+    [[UIColor grayColor] setFill];
+    [[UIColor blueColor] setStroke];
+    CGContextSetLineWidth(gc, 2);
+    
+    //=== 执行绘画 ===
+    
+    CGContextDrawPath(gc, kCGPathFillStroke);
+    
+    //=== 从Context中获取图像，并显示在界面上 ===
+
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
+    [self.view addSubview:imgView];
+    
+}
+{% endhighlight %}
+
+2 在CALayer层面，用CALayer的绘图api完成绘制
+
+{% highlight ruby %}
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        //=== 绘画逻辑 ===
+        
+        //创建用于转移坐标的Transform，这样我们不用按照实际显示做坐标计算
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(50, 50);
+        //创建CGMutablePathRef
+        CGMutablePathRef path = CGPathCreateMutable();
+        CGPathAddArc(path, &transform, 50, 50, 50, 0, 1.5 * M_PI, NO);
+        CGPathMoveToPoint(path, &transform, 50, 0);
+        CGPathAddLineToPoint(path, &transform, 50, 50);
+        CGPathAddLineToPoint(path, &transform, 100, 50);
+        
+        //==== 绘画路径添加到calayer ====
+        
+        CAShapeLayer *layer = [CAShapeLayer layer];  //layer在h文件中声明
+        layer.bounds = CGRectMake(0, 0, 200, 200);
+        layer.position = CGPointMake(250, 250);   //In parent coordinate
+        layer.backgroundColor = [UIColor redColor].CGColor;
+        layer.path = path;
+        [self.layer addSublayer:layer];
+        
+    }
+    return self;
+}
+{% endhighlight %}
+
+两种绘图的关系：
+
+两种方法"绘图逻辑"部分是相同的
+
+UIView是对CALayer的一层封装，对UIView的操作实际上会调用深一层的CALayer，改变UIView实际上时改变了CALayer
+
+也可以直接操作CALayer对象（view.layer），使用CALayer的绘图API，绘图部分的动画操作等都可以在CALayer层完成
