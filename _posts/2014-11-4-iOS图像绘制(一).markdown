@@ -7,6 +7,10 @@ categories: [技术,ios]
 
 本文分析两个代码例子：在UIView层面和CALayer层面绘制图像
 
+先看绘制结果：
+
+![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/img01.png)
+
 1 在UIView层面进行绘制
 
 {% highlight ruby %}
