@@ -37,8 +37,8 @@ categories: [技术,ios]
     //=== 将CGMutablePathRef添加到当前Context内 ===
 
     CGContextAddPath(gc, path);
-    [[UIColor grayColor] setFill];
-    [[UIColor blueColor] setStroke];
+    [[UIColor blackColor] setFill];
+    [[UIColor blackColor] setStroke];
     CGContextSetLineWidth(gc, 2);
     
     //=== 执行绘画 ===
