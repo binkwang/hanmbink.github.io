@@ -21,9 +21,7 @@ You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://gi
 
 Bink Wang
 
-活了三十年都很平淡，没有什么丰功伟绩，甚至觉得自己很失败。
-
-所以关于我就不做介绍了。
+哥是个谜。
 
 <!--
 blog: [hanmbink.github.io](http://hanmbink.github.io)
