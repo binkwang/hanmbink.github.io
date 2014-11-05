@@ -18,11 +18,6 @@ categories: [技术,ios]
 {
     [super viewDidLoad];
     
-    //=== 创建CGContextRef ===
-
-    UIGraphicsBeginImageContext(self.view.bounds.size);//创建上下文
-    CGContextRef gc = UIGraphicsGetCurrentContext();//获取上下文
-    
     //=== 绘画逻辑 ===
 
     //创建用于转移坐标的Transform，这样我们不用按照实际显示做坐标计算
@@ -34,8 +29,13 @@ categories: [技术,ios]
     CGPathAddLineToPoint(path, &transform, 50, 50);
     CGPathAddLineToPoint(path, &transform, 100, 50);
     
+    //=== 创建CGContextRef ===
+    
+    UIGraphicsBeginImageContext(self.view.bounds.size);//创建上下文
+    CGContextRef gc = UIGraphicsGetCurrentContext();//获取上下文
+    
     //=== 将CGMutablePathRef添加到当前Context内 ===
-
+    
     CGContextAddPath(gc, path);
     [[UIColor blackColor] setFill];
     [[UIColor blackColor] setStroke];
@@ -46,7 +46,7 @@ categories: [技术,ios]
     CGContextDrawPath(gc, kCGPathFillStroke);
     
     //=== 从Context中获取图像，并显示在界面上 ===
-
+    
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
@@ -90,7 +90,7 @@ categories: [技术,ios]
 
 两种绘图的关系：
 
-两种方法"绘图逻辑"部分是相同的
+两种方法"绘图逻辑"部分是相同的，都是使用Quartz 2D框架
 
 UIView是对CALayer的一层封装，对UIView的操作实际上会调用深一层的CALayer，改变UIView实际上时改变了CALayer
 
