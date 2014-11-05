@@ -19,8 +19,6 @@ You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://gi
 
 `关于我`
 
-Bink Wang
-
 哥是个谜。
 
 <!--
