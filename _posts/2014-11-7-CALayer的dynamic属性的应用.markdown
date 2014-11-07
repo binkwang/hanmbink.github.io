@@ -13,19 +13,19 @@ CALayer 的 dynamic 属性提供了一种简单的机制来实现任何形式的
 
 这篇文章讲一下用CALayer 的 dynamic 属性实现声音的淡入淡出这个不可视动画。
 
-`子类化CALayer，设置声音属性volume`
+# 子类化CALayer，设置声音属性volume
 {% highlight ruby %}
 @interface AudioLayer : CALayer
 @property (nonatomic, assign) float volume;
 @end
 {% endhighlight %}
 
-`将属性volume标记为 @dynamic`
+# 将属性volume标记为 @dynamic
 {% highlight ruby %}
 @dynamic volume;
 {% endhighlight %}
 
-`覆写 +needsDisplayForKey: 方法, 用来通知CALayer有属性发生改变`
+# 覆写 +needsDisplayForKey: 方法, 用来通知CALayer有属性发生改变
 {% highlight ruby %}
 
 +(BOOL)needsDisplayForKey:(NSString *)key
@@ -38,7 +38,7 @@ CALayer 的 dynamic 属性提供了一种简单的机制来实现任何形式的
 }
 {% endhighlight %}
 
-`覆写 -display 方法`
+# 覆写 -display 方法
 {% highlight ruby %}
 -(void)display
 {
@@ -47,7 +47,7 @@ CALayer 的 dynamic 属性提供了一种简单的机制来实现任何形式的
 }
 {% endhighlight %}
 
-`为属性的变化做一个平滑的过渡动画`
+# 为属性的变化做一个平滑的过渡动画
 {% highlight ruby %}
 -(id<CAAction>)actionForKey:(NSString *)key
 {
