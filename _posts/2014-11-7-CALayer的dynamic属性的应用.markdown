@@ -67,7 +67,7 @@ CALayer 的 dynamic 属性提供了一种简单的机制来实现任何形式的
 
 presentation Layer 是 model Layer 的一个拷贝，但它的值所表示的是当前动画状态中属性的实时值。所以在actionForKey和display方法中，要使用presentation Layer中的属性值。
 
-全部工程代码可以到这里下载：
+全部工程代码可以到这里下载:[DynamicProperty](https://github.com/hanmbink/DynamicProperty)
 
 
 
