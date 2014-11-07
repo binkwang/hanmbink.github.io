@@ -63,9 +63,7 @@ CALayer 的 dynamic 属性提供了一种简单的机制来实现任何形式的
 }
 {% endhighlight %}
 
-以上就是dynamic属性的基本使用步骤，需要注意的是，当设置 CALayer 的某个属性，你实际设置的是 model Layer 的值， 这里的 model Layer 表示正在进行的动画结束时， Layer 所达到的最终状态。如果在动画过程中你取 model Layer 的值，获取到的是最终的值。
-
-presentation Layer 是 model Layer 的一个拷贝，但它的值所表示的是当前动画状态中属性的实时值。所以在actionForKey和display方法中，要使用presentation Layer中的属性值。
+以上就是dynamic属性的基本使用步骤，需要注意的是，当设置 CALayer 的某个属性时实际设置的是 model Layer 的值， 这里的 model Layer 表示正在进行的动画结束时 Layer 所达到的最终状态，也就是说如果在动画过程中取 model Layer 的值，获取到的是最终的值。presentation Layer 是 model Layer 的一个拷贝，但它的值所表示的是当前动画状态中属性的实时值。所以在actionForKey和display方法中，要使用presentation Layer中的属性值。
 
 * 整个工程代码在这里下载: [https://github.com/hanmbink/DynamicProperty](https://github.com/hanmbink/DynamicProperty)
 
