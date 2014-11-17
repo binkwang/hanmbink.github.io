@@ -25,7 +25,7 @@ UIView 默认情况下禁止了 layer 动画，但是在 animation block 中又�
 
 当这个layer是某个view的支持时，layer按照这样的流程来寻找action:
 
-layer 通过向它的 delegate 发送 actionForLayer:forKey: 消息来询问提供一个对应属性变化的 action。delegate 可以通过返回以下三者之一来进行响应：
+layer 通过向它的 delegate 发送 actionForLayer:forKey: 消息来询问提供一个对应属性变化的 action。delegate可以通过返回以下三者之一来进行响应：
 
 * 它可以返回一个动作对象，这种情况下 layer 将使用这个动作。
 
@@ -46,10 +46,12 @@ NSLog(@"outside animation block: %@“, [myView actionForLayer:myView.layer forK
 
 输出：
 outside animation block: <null>
+
 inside animation block: <CABasicAnimation: 0x8c2ff10]]>
 
 可以看到在 block 外 view 返回的是 NSNull 对象，而在 block 中时返回的是一个 CABasicAnimation。
 
 对于 附加到 view 上的 layer 来说，对动作的搜索只会到第一步为止。
+
 对于单独的 layer 来说，剩余的四个步骤可以在 CALayer 的 actionForKey: 文档中找到。
 
