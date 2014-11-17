@@ -48,7 +48,7 @@ NSLog(@"outside animation block: %@“, [myView actionForLayer:myView.layer forK
 
 outside animation block: <null>
 
-inside animation block: <CABasicAnimation: 0x8c2ff10]]>
+inside animation block: <CABasicAnimation: 0x8c2ff10>
 
 可以看到在 block 外 view 返回的是 NSNull 对象，而在 block 中时返回的是一个 CABasicAnimation。
 
