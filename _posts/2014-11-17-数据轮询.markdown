@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "一个界面中数据轮询的实现"
+title:  "界面上数据轮询刷新的实现"
 date:   2014-11-17 10:00:00
 categories: [技术,ios]
 ---
@@ -13,7 +13,6 @@ categories: [技术,ios]
 
 * 程序生命周期中，计时器的创建和销毁时机
 
-
 变量声明
 {% highlight ruby %}
 @interface CWStuListVC ()
@@ -24,7 +23,6 @@ categories: [技术,ios]
 @end
 {% endhighlight %}
 
-
 变量初始化
 {% highlight ruby %}
 -(void)initData
@@ -32,7 +30,6 @@ categories: [技术,ios]
     _dataSource = [[NSMutableArray alloc] initWithCapacity:5];
 }
 {% endhighlight %}
-
 
 程序生命周期和界面切换过程中的计时器控制
 {% highlight ruby %}
@@ -65,8 +62,6 @@ categories: [技术,ios]
 }
 {% endhighlight %}
 
-
-
 数据请求
 {% highlight ruby %}
 -(void)getDataSource
@@ -74,7 +69,6 @@ categories: [技术,ios]
     [[CWHttpHelper sharedInstance] asyncGetStudentsWithCourseID:CurrentCourseID onStart:^{
         [SVProgressHUD showWithStatus:@"获取"];
     } onSuccess:^(NSString *jsonStr) {
-        
         [SVProgressHUD dismiss];
         [[CWJsonStrParser sharedInstance] parseJsonStr:jsonStr withModelName:ModelName4CWStudent andResultArr:_dataSource];
         
