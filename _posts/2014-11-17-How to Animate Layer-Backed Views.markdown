@@ -45,6 +45,7 @@ NSLog(@"outside animation block: %@“, [myView actionForLayer:myView.layer forK
 {% endhighlight %}
 
 输出：
+
 outside animation block: <null>
 
 inside animation block: <CABasicAnimation: 0x8c2ff10]]>
