@@ -5,7 +5,7 @@ date:   2014-11-17 18:00:00
 categories: [技术,ios]
 ---
 
-既然修改uiview的frame实际上在底层就是修改layer的frame,那么为什么修改view的frame属性不会以layer的隐式动画形式来改变，而在uiview的动画block中修改frame会以动画来改变？
+`既然修改uiview的frame实际上在底层就是修改layer的frame,那么为什么修改view的frame属性不会以layer的隐式动画形式来改变，而在uiview的动画block中修改frame会以动画来改变？这篇文章就来解析这个问题。`
 
 两种类型的layer:
 
