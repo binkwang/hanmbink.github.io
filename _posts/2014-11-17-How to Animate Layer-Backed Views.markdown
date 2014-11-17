@@ -38,9 +38,9 @@ layer 通过向它的 delegate 发送 actionForLayer:forKey: 消息来询问提�
 验证：
 
 {% highlight ruby %}
-NSLog(@"outside animation block: %@“, [myView actionForLayer:myView.layer forKey:@"position"]);
+NSLog(@"outside animation block: %@", [myView actionForLayer:myView.layer forKey:@"position"]);
 [UIView animateWithDuration:0.3 animations:^{
-        NSLog(@"inside animation block: %@",[myView actionForLayer:myView.layer forKey:@"position"]);
+     NSLog(@"inside animation block: %@",[myView actionForLayer:myView.layer forKey:@"position"]);
 }];
 {% endhighlight %}
 
