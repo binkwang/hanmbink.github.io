@@ -7,13 +7,13 @@ categories: [技术,ios]
 
 `既然修改uiview的frame实际上在底层就是修改layer的frame,那么为什么修改view的frame属性不会以layer的隐式动画形式来改变，而在uiview的动画block中修改frame会以动画来改变？这篇文章就来解析这个问题。`
 
-两种类型的layer:
+# 两种类型的layer:
 
-1 附加到 view 上的 layer, 即可以通过view.layer获取的layer。view有了layer的底层支持，所以view又称为“Layer-Backed Views”
+* 附加到 view 上的 layer, 即可以通过view.layer获取的layer。view有了layer的底层支持，所以view又称为“Layer-Backed Views”
 
-2 单独的 layer
+* 单独的 layer
 
-How to Animate Layer-Backed Views
+# How to Animate Layer-Backed Views
 
 当一个layer是view.layer时，这个layer可动画属性的改变不会用隐式动画的形式来展示，即layer的隐式动画不起作用。
 
