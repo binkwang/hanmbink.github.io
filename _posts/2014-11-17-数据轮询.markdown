@@ -1,0 +1,113 @@
+---
+layout: post
+title:  "一个界面中数据轮询的实现"
+date:   2014-11-17 10:00:00
+categories: [技术,ios]
+---
+
+经常遇到这样的需求：一个界面上的数据需要实时更新。一般的做法是用计时器按照固定间隔请求数据，但是如果想做到性能好一点，还需要多考虑几个问题，这篇文章就简单做一个稍微完善的数据轮询，主要是从计时器的控制上做了点优化。
+
+* 计时器按照固定间隔请求数据
+
+* 界面切换过程中，计时器的控制
+
+* 程序生命周期中，计时器的创建和销毁时机
+
+
+变量声明
+{% highlight ruby %}
+@interface CWStuListVC ()
+{
+    NSTimer *_timer;
+    NSMutableArray *_dataSource;
+}
+@end
+{% endhighlight %}
+
+
+变量初始化
+{% highlight ruby %}
+-(void)initData
+{
+    _dataSource = [[NSMutableArray alloc] initWithCapacity:5];
+}
+{% endhighlight %}
+
+
+程序生命周期和界面切换过程中的计时器控制
+{% highlight ruby %}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self getDataSource];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self stopAndDestoryTimer];
+}
+{% endhighlight %}
+
+生命周期响应方法
+{% highlight ruby %}
+-(void)appDidBecomeActive:(NSNotification*)notification
+{
+    //重新获取数据 并启动计时器
+    [self getDataSource];
+}
+-(void)appWillResignActive:(NSNotification*)notification
+{
+    //销毁计时器
+    [self stopAndDestoryTimer];
+}
+{% endhighlight %}
+
+
+
+数据请求
+{% highlight ruby %}
+-(void)getDataSource
+{
+    [[CWHttpHelper sharedInstance] asyncGetStudentsWithCourseID:CurrentCourseID onStart:^{
+        [SVProgressHUD showWithStatus:@"获取"];
+    } onSuccess:^(NSString *jsonStr) {
+        
+        [SVProgressHUD dismiss];
+        [[CWJsonStrParser sharedInstance] parseJsonStr:jsonStr withModelName:ModelName4CWStudent andResultArr:_dataSource];
+        
+        //界面刷新（省略）
+        
+        if (!_timer) { [self createAndFireTimer]; }
+    } onFail:^{
+        [SVProgressHUD showErrorWithStatus:@"获取失败"];
+    }];
+}
+{% endhighlight %}
+
+计时器创建和销毁
+{% highlight ruby %}
+-(void)createAndFireTimer
+{
+    //创建计时器开始计时
+    _timer = [NSTimer timerWithTimeInterval:ALARM_SIGN_GET_RATE target:self selector:@selector(getDataSource) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    [self performSelector:@selector(fireTimer) withObject:nil afterDelay:ALARM_SIGN_GET_RATE];
+}
+-(void)fireTimer
+{
+    if (_timer) {
+        [_timer fire];
+    }
+}
+-(void)stopAndDestoryTimer
+{
+    //停止计时器
+    if (_timer.isValid) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+}
+{% endhighlight %}
