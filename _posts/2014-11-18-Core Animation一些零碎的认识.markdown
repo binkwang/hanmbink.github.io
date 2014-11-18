@@ -5,7 +5,7 @@ date:   2014-11-18 18:00:00
 categories: [技术,ios]
 ---
 
-* 动画
+# 动画
 
 什么是Animation(动画),简单点说就是在一段时间内,显示的内容发生了变化.
 
@@ -21,7 +21,7 @@ Animation作用于Layer.CALayer提供了接口用于给自己添加Animation.
 
 Animation则包含了动画的时间,变化,以及变化的速度.
 
-* CALayer
+# CALayer
 UIView的职责在于界面的显示和界面事件的处理.
 
 每一个View的背后都有一个layer(可以通过view.layer进行访问),layer是用于界面显示的.
@@ -31,7 +31,7 @@ CALayer属于QuartzCore框架,非常重要,但并没有想象中的那么好理�
 我们通常操作的用于显示的Layer在Core Animation这层的概念中其实担当的是数据模型Model的角色,它并不直接做渲染的工作.
 
 
-* Layer的渲染架构
+# Layer的渲染架构
 
 Layer也和View一样存在着一个层级树状结构,称之为图层树(Layer Tree).
 
