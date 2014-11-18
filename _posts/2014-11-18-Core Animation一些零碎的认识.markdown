@@ -31,7 +31,7 @@ CALayer属于QuartzCore框架,非常重要,但并没有想象中的那么好理�
 我们通常操作的用于显示的Layer在Core Animation这层的概念中其实担当的是数据模型Model的角色,它并不直接做渲染的工作.
 
 
-# Layer的渲染架构
+# CALayer的渲染架构
 
 Layer也和View一样存在着一个层级树状结构,称之为图层树(Layer Tree).
 
