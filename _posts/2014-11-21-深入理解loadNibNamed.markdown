@@ -15,7 +15,7 @@ if ([[array lastObject] isKindOfClass:[CWTVCell4Stu class]]) {
 {% endhighlight %}
 
 
-# owner参数：
+# owner参数
 
 CWTVCell4Stu.xib文件的File’s Owner设置为哪个类，owner参数即为这个类的实例
 
@@ -48,11 +48,11 @@ FileOwner *owner = [FileOwner new];
 
 # loadNibNamed与initWithNibName的异同
 
-* 共同：
+* 共同
 
 都可以把xib文件加载到内存
 
-* 区别：
+* 区别
 
 initWithNibName视图控制器的方法，用xib文件来初始化视图控制器的视图系统，需要把xib文件的File’s Owner设置为视图控制器类名，这样xib文件的视图树树就属于这个视图控制器。视图控制器的视图系统就用这个xib文件初始化。
 
