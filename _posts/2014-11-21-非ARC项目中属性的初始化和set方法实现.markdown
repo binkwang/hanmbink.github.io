@@ -17,7 +17,7 @@ categories: [技术,ios]
 {% highlight ruby %}
 @implementation CWStudent
 /****************
- 自己实现属性的set方法时，属性赋值要用“_name=”的方式，不能用“self.name=”方式；属性retain/copy一次
+ 自己实现属性的set方法时，属性赋值要用“_name=”的方式，不能用“self.name=”方式；属性要retain或copy一次
  *****************/
 -(void)setName:(NSString *)name
 {
@@ -25,7 +25,7 @@ categories: [技术,ios]
     [_name copy];
 }
 /****************
- initWithDic初始化方法中，成员变量的赋值必须使用"self.name="的方式,只有通过这样赋值，成员变量才能调用默认的set方法把retain value值加1， 如果使用“_name=”方式赋值，不会调用属性的set方法，导致在release该成员变量时内存错误。
+ initWithDic初始化方法中，成员变量的赋值必须使用"self.name="的方式,只有通过这样赋值，成员变量才能调用默认的set方法把retain value值加1。如果使用“_name=”方式赋值，不会调用属性的set方法，导致在release该成员变量时内存错误。
  *****************/
 -(id)initWithDic:(NSDictionary*)dic
 {
