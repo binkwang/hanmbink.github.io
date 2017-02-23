@@ -13,11 +13,11 @@ You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://gi
 
 `三文鱼 Salmon`
 
-[太平洋逆流而上的三文鱼](http://zh.wikipedia.org/zh-tw/%E9%AE%AD%E9%AD%9A)。
+[太平洋逆流而上的三文鱼](https://en.wikipedia.org/wiki/Salmon)。
 
-`About me`
+`About Me`
 
-Bink | Digital Delivery Mobility | Accenture Greater China
+Bink &#124 Digital Delivery Mobility &#124 Accenture Greater China
 
 
 <!--
