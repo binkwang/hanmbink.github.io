@@ -17,7 +17,7 @@ You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://gi
 
 `About Me`
 
-Bink &#124 Digital Delivery Mobility &#124 Accenture Greater China
+Bink \| Digital Delivery Mobility \| Accenture Greater China
 
 
 <!--
