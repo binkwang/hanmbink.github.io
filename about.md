@@ -11,15 +11,13 @@ You can find the source code for the Jekyll new theme at: [github.com/jglovier/j
 You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
 -->
 
-`关于这个博客的名字`
+`三文鱼 Salmon`
 
-这个博客的名字叫做“三文鱼”，一般人看到这个名字第一印象应该是被切成片状的红白相间的鱼肉，而不是张着奇怪大嘴的三文鱼全身照，更不会想到在[太平洋逆流而上的三文鱼](http://zh.wikipedia.org/zh-tw/%E9%AE%AD%E9%AD%9A)。
+[太平洋逆流而上的三文鱼](http://zh.wikipedia.org/zh-tw/%E9%AE%AD%E9%AD%9A)。
 
-第一次了解到“三文鱼”这个物种是在大学期间，被其精神所振奋，一直使用"salmon"这个网名很多年，这个博客还要用这个名字。
+`About me`
 
-`关于我`
-
-哥是个谜。
+Bink | Digital Delivery Mobility | Accenture Greater China
 
 
 <!--
