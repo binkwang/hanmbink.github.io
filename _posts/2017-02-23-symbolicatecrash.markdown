@@ -54,5 +54,35 @@ Check the result SHDR-symbolicate.crash file:
 
 ![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/symbolicatecrash/image-08.png)
 
+-------------------------------------------------------------------
+
+__Another Case__
+
+
+Sometimes your building job is conducted from Jenkins, and a specific complying  machine is set by Jenkins.
+So you can search from Jenkins build Console Output about where the .xcarchive file located. All the .dSYM(each framework of a build has a single .sSYM file) files are under .xcarchive file.
+
+![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/symbolicatecrash/jenkins-01.png)
+
+
+From the complying machine, you can get the .xcarchive file. Just open the file to see dSYM files.
+
+![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/symbolicatecrash/folder-01.png)
+
+![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/symbolicatecrash/folder-02.png)
+
+Select the dSYM file which you need.
+For example, from the crash file, we can see "SHDR" and "xxxx" frameworks which developed by self(not third framework or apple official frameworks). we have to symbolize these two framework.
+
+![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/symbolicatecrash/crash-01.png)
+
+Run cmd on command line:
+./symbolicatecrash -v SHDR.crash  WDPRFinderCore.framework.dSYM
+
+See result:
+![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/symbolicatecrash/crash-02.png)
+
+-------------------------------------------------------------------
+
 Reference: 
 http://www.cocoachina.com/bbs/read.php?tid=180736
