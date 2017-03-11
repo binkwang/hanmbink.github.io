@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About me
 permalink: /about/
 ---
 <!--
@@ -11,13 +11,7 @@ You can find the source code for the Jekyll new theme at: [github.com/jglovier/j
 You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
 -->
 
-`三文鱼 Salmon`
-
-[太平洋逆流而上的三文鱼](https://en.wikipedia.org/wiki/Salmon)。
-
-`About Me`
-
-Bink \| Digital Delivery Mobility \| Accenture Greater China
+Bink \| iOS Tech Lead \| Digital Delivery Mobility \| Accenture Greater China
 
 
 <!--
