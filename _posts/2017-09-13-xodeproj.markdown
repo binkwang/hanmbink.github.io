@@ -1,0 +1,83 @@
+---
+layout: post
+title:  ".xcodeproj File Analysis"
+date:   2017-9-13 08:00:00
+categories: [tech]
+---
+
+.xcodeproj File Analysis [draft]
+
+
+![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/xcodeproj-file/project-file-dict.png)
+
+![](https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/xcodeproj-file/xcodeproj-file-dict.png)
+
+
+__project.pbxproj__
+
+{% highlight ruby %}
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+/* Begin PBXBuildFile section */
+		1F62E6B41F67C2A70070FEA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E6B31F67C2A70070FEA0 /* AppDelegate.swift */; };
+/* End PBXBuildFile section */
+	};
+	rootObject = 1F62E6A81F67C2A70070FEA0 /* Project object */;
+}
+{% endhighlight %}
+
+
+__objects defined in project.pbxproj file__
+
+
+UID: each object has the unique identifier, the identifier should not be changed manually, otherwise, the project will not be opened.
+
+{% highlight ruby %}
+1F62E6B61F67C2A70070FEA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E6B51F67C2A70070FEA0 /* ViewController.swift */; };
+{% endhighlight%}
+
+
+
+
+isa: the catagory of the object
+
+{% highlight ruby %}
+1F62E6C51F67C2A80070FEA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F62E6A81F67C2A70070FEA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F62E6AF1F67C2A70070FEA0;
+			remoteInfo = YYY;
+		};
+{% endhighlight%}
+
+Some comman catagories
+
+* PBXBuildFile
+* PBXContainerItemProxy
+* PBXFileReference
+* PBXFrameworksBuildPhase
+* PBXGroup
+* PBXNativeTarget
+* PBXProject
+* PBXResourcesBuildPhase
+* PBXSourcesBuildPhase
+* PBXTargetDependency
+* PBXVariantGroup
+* XCBuildConfiguration
+* XCConfigurationList
+
+__relationship of defferent objects__
+
+
+
+
+
+
+
+
