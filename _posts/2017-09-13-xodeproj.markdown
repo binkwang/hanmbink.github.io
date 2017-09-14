@@ -35,16 +35,24 @@ __project.pbxproj__
 __objects defined in project.pbxproj file__
 
 
-UID: each object has the unique identifier, the identifier should not be changed manually, otherwise, the project will not be opened.
+`Object / UID`
+
+At it’s heart, this file is an object graph. All of these objects correspond with some sort of action you do in Xcode. This is the master list of files, target composition, build settings, etc. Each item is referenced by a UID.
+
+One of the most important things to learn about the project file is that these UIDs must not be changed. They need to be consistent within the file, otherwise Xcode cannot open your project. Conversely, if there are extra, unused references, Xcode doesn’t care.
+
+Traversing the graph is pretty simple. It’s just a matter of picking a UID and finding it elsewhere in the document. There are a number of intermediary objects to go through to find a particular target that contains a particular file, the files in a build phase etc.
+
 
 {% highlight ruby %}
 1F62E6B61F67C2A70070FEA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E6B51F67C2A70070FEA0 /* ViewController.swift */; };
-{% endhighlight%}
+{% endhighlight %}
 
 
+`Classes / isa`
 
+As you scan through this file, you’ll note that every object has an isa field. These names (likely) correspond with the actual objects created when you open the file. For the purpose of this exploration, I’ll be referring to these objects as Classes. And, for the most part, they are all prefixed with PBX or XC for consistency. Here is the full list as of Xcode 6:
 
-isa: the catagory of the object
 
 {% highlight ruby %}
 1F62E6C51F67C2A80070FEA0 /* PBXContainerItemProxy */ = {
@@ -54,9 +62,9 @@ isa: the catagory of the object
 			remoteGlobalIDString = 1F62E6AF1F67C2A70070FEA0;
 			remoteInfo = YYY;
 		};
-{% endhighlight%}
+{% endhighlight %}
 
-Some comman catagories
+Some comman classes
 
 * PBXBuildFile
 * PBXContainerItemProxy
@@ -72,12 +80,132 @@ Some comman catagories
 * XCBuildConfiguration
 * XCConfigurationList
 
-__relationship of defferent objects__
+
+__XCBuildConfiguration__
+
+
+This object holds all of your build settings, including compiler version, provisioning, code signing, info plist, etc. By default, this is not very large because unlike other sections of the project file, it is essentially a diff versus the default build configurations.
+
+{% highlight ruby %}
+1F62E6CB1F67C2A80070FEA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+{% endhighlight %}
 
 
 
+__Targets__
+
+All target information is saved in the .pbxproj with the type PBXNativeTarget or PBXAggregateTarget. Here’s what a simple target looks like:
+
+{% highlight ruby %}
+1F62E6AF1F67C2A70070FEA0 /* YYY */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F62E6CD1F67C2A80070FEA0 /* Build configuration list for PBXNativeTarget "YYY" */;
+			buildPhases = (
+				1F62E6AC1F67C2A70070FEA0 /* Sources */,
+				1F62E6AD1F67C2A70070FEA0 /* Frameworks */,
+				1F62E6AE1F67C2A70070FEA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YYY;
+			productName = YYY;
+			productReference = 1F62E6B01F67C2A70070FEA0 /* YYY.app */;
+			productType = "com.apple.product-type.application";
+		};
+{% endhighlight %}
+
+The keys within this object should look fairly familiar–they correspond with information we see within the project view in Xcode. $(TARGET_NAME) is retrieved from the name field. The buildConfigurationList populates the Build Settings tab, buildRules populates the Build Rules tab, and buildPhases and dependencies are shown in the Build Phases tab. The productReference is the UID used to refer to the built product, not the target itself even though they can appear to be very similar.
 
 
+__PBXNativeTarget__
 
 
+This represents a target for your app. It contains references to the build configuration, build phases, product, etc. This is also how each target can have different settings from the project file. This UID is used both internally to the .pbxproj and externally, as you’ll see later.
 
+
+__Schemes__
+
+Schemes are saved in a separate xml file, within xcuserdata or xcshareddata. Most repositories ignore xcuserdata since Xcode also put things in there like breakpoint settings that shouldn’t be shared between developers. These .xcscheme files are standard xml, not plists like many other files used by Xcode internals. Like the .pbxproj this is not a full representation of scheme data–there is an internal-to-Xcode set of flags that it overrides.
+
+At a quick glance, this file appears to be fairly generic. In reality it is tightly coupled to the project file and targets therein. Every target that is explicitly included in the scheme is referenced within the .xcscheme by UID. Because of this, these cannot simply be copy-pasted between different Xcode projects and “just work.”
+
+This file is auto-generated by Xcode, and just like the project file will be overwritten on a regular basis. Edits to this file should only be made while the corresponding Xcode project is not open.
+
+The root of this file includes information for performing all of the different actions within the project: build, test, launch, profile, analyze, and archive. Unlike the project file, there are no key/value pairs that reference a particular entity so as you read through it, you will notice many references that look the same. The name of the scheme is the name of the file.
+
+{% highlight ruby %}
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0500"
+   version = "1.7">
+   <BuildAction>
+   	...
+   </BuildAction>
+   <TestAction>
+   ...
+   </TestAction>
+   <LaunchAction>
+   ...
+   </LaunchAction>
+   <ProfileAction>
+   ...
+   </ProfileAction>
+   <AnalyzeAction>
+   ...
+   </AnalyzeAction>
+   <ArchiveAction>
+   ...
+   </ArchiveAction>
+</Scheme>
+{% endhighlight %}
