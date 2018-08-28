@@ -27,32 +27,38 @@ For more information, please find in App Store: https://itunes.apple.com/nz/app/
 
 
 `Finder UI`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-1.png" height="30%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-2.png" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-1.png" width="50" height="50" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-2.png" width="50" height="50" />
 <!--![](../pic/portfolio/finder-1.png)-->
 <!--![](../pic/portfolio/finder-2.png)-->
 
 
 `Finder code snippet`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-code-1" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-code-1.png" width="50" height="50" />
 <!--![](../pic/portfolio/finder-code-1.png)-->
 
 
 `Ticketing UI`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-1.png" height="30%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-2.png" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-1.png" width="50" height="50" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-2.png" width="50" height="50" />
 <!--![](../pic/portfolio/ticketing-1.png)-->
 <!--![](../pic/portfolio/ticketing-2.png)-->
 
 `Ticketing code snippet`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-code-1.png" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-code-1.png" width="50" height="50" />
 <!--![](../pic/portfolio/ticketing-code-1.png)-->
 
 `Profile UI`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-1.png" height="30%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-2.png" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-1.png" width="50" height="50" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-2.png" width="50" height="50" />
 <!--![](../pic/portfolio/profile-1.png)-->
 <!--![](../pic/portfolio/profile-2.png)-->
 
 `Profile code snippet`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-code-1.png" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-code-1.png" width="50" height="50" />
 <!--![](../pic/portfolio/profile-code-1.png)-->
 
 ---
@@ -66,15 +72,18 @@ This is a private demo project, to fetch Trade Me categories and show listings o
 Open source. See detail in my GitHub: https://github.com/hanmbink/TME-Demo
 
 `Architecture`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tem-architecture-1.png" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tem-architecture-1.png" width="50" height="50" />
 <!--![](../pic/portfolio/tem-architecture-1.png)-->
 
 `UI`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-ui-1.png" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-ui-1.png" width="50" height="50" />
 <!--![](../pic/portfolio/tme-ui-1.png)-->
 
 `Code snippet`
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-code-1.png" height="30%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-code-2.png" height="30%" />
+
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-code-1.png" width="50" height="50" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-code-2.png" width="50" height="50" />
 <!--![](../pic/portfolio/tme-code-1.png)-->
 <!--![](../pic/portfolio/tme-code-2.png)-->
 
