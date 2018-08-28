@@ -13,7 +13,7 @@ LinkedIn profile: https://www.linkedin.com/in/bink-wang-653836a8/
 
 ### Project 1: Shanghai Disney Resort Mobile App (iOS)
 
-`Description`
+#### Description
 
 This is Shanghai Disney Resort official mobile application.
 
@@ -26,14 +26,14 @@ The main functions including,
 For more information, please find in App Store: https://itunes.apple.com/nz/app/Shanghai%20Disney%20Resort/id1073826118?mt=8
 
 
-`Finder UI`
+#### Finder UI
 
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-1.png" width="50%" height="50%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-2.png" width="50%" height="50%" />
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-1.png" width="30%" height="30%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-2.png" width="30%" height="30%" />
 <!--![](../pic/portfolio/finder-1.png)-->
 <!--![](../pic/portfolio/finder-2.png)-->
 
 
-`Finder code snippet`
+#### Finder code snippet
 
 {% highlight ruby %}
 @implementation WDPRFinderUI
@@ -58,17 +58,17 @@ return [self.finderUIResourceBundle localizedStringForKey:key value:@"" table: n
 @end
 {% endhighlight %}
 
-<!--<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-code-1.png" width="50%" height="50%" />-->
+<!--<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/finder-code-1.png" width="30%" height="30%" />-->
 <!--![](../pic/portfolio/finder-code-1.png)-->
 
 
-`Ticketing UI`
+#### Ticketing UI
 
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-1.png" width="50%" height="50%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-2.png" width="50%" height="50%" />
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-1.png" width="30%" height="30%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-2.png" width="30%" height="30%" />
 <!--![](../pic/portfolio/ticketing-1.png)-->
 <!--![](../pic/portfolio/ticketing-2.png)-->
 
-`Ticketing code snippet`
+#### Ticketing code snippet
 
 {% highlight ruby %}
 typedef void (^ServiceResponse)(NSError *error);
@@ -98,16 +98,16 @@ success:(ServiceSuccess)success
 failure:(ServiceFailure)failure;
 {% endhighlight %}
 
-<!--<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-code-1.png" width="50%" height="50%" />-->
+<!--<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/ticketing-code-1.png" width="30%" height="30%" />-->
 <!--![](../pic/portfolio/ticketing-code-1.png)-->
 
-`Profile UI`
+#### Profile UI
 
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-1.png" width="50%" height="50%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-2.png" width="50%" height="50%" />
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-1.png" width="30%" height="30%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-2.png" width="30%" height="30%" />
 <!--![](../pic/portfolio/profile-1.png)-->
 <!--![](../pic/portfolio/profile-2.png)-->
 
-`Profile code snippet`
+#### Profile code snippet
 
 {% highlight ruby %}
 @interface WDPREditAddressViewController : WDPRTableController
@@ -135,7 +135,7 @@ forTable:(WDPRTableController *)table;
 forTable:(WDPRTableController *)table;
 {% endhighlight %}
 
-<!--<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-code-1.png" width="50%" height="50%" />-->
+<!--<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/profile-code-1.png" width="30%" height="30%" />-->
 <!--![](../pic/portfolio/profile-code-1.png)-->
 
 ---
@@ -143,22 +143,22 @@ forTable:(WDPRTableController *)table;
 ### Project 2: Trade Me Demo (iOS)
 
 
-`Description`
+#### Description
 
 This is a private demo project, to fetch Trade Me categories and show listings of selected category.
 Open source. See detail in my GitHub: https://github.com/hanmbink/TME-Demo
 
-`Architecture`
+#### Architecture
 
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tem-architecture-1.png" width="50%" height="50%" />
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tem-architecture-1.png" width="80%" height="80%" />
 <!--![](../pic/portfolio/tem-architecture-1.png)-->
 
-`UI`
+#### UI
 
-<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-ui-1.png" width="50%" height="50%" />
+<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-ui-1.png" width="80%" height="80%" />
 <!--![](../pic/portfolio/tme-ui-1.png)-->
 
-`Code snippet`
+#### Code snippet
 
 {% highlight ruby %}
 func fetchListing(_ catetoryId: String?, completionHandler: @escaping DataCompletionHandler) {
@@ -194,7 +194,7 @@ completion(listings, errString)
 }
 {% endhighlight %}
 
-<!--<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-code-1.png" width="50%" height="50%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-code-2.png" width="50%" height="50%" />-->
+<!--<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-code-1.png" width="30%" height="30%" />...<img src="https://raw.githubusercontent.com/hanmbink/hanmbink.github.io/master/pic/portfolio/tme-code-2.png" width="30%" height="30%" />-->
 <!--![](../pic/portfolio/tme-code-1.png)-->
 <!--![](../pic/portfolio/tme-code-2.png)-->
 
@@ -203,7 +203,7 @@ completion(listings, errString)
 
 ### Project 3: YAWA-Demo
 
-`Description`
+#### Description
 
 This is a demo project in Swift which show weather infomation of specific cities. 
 Open source. See detail in my GitHub: https://github.com/hanmbink/YAWA-Demo
